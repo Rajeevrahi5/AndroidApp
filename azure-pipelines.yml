@@ -5,6 +5,7 @@
 
 trigger:
 - master
+- azure-pipelines
 
 pool:
   vmImage: ubuntu-latest
@@ -12,7 +13,7 @@ pool:
 steps:
 - task: Gradle@2
   inputs:
-    workingDirectory: ''
+    workingDirectory: '$(build.sourcesDirectory)'
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
